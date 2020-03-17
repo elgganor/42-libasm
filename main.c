@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:24:07 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/17 15:32:00 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/17 15:37:35 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main()
 {
-	const char *msg = "Wesh mec";
+	const char *msg = "Wesh mec\n";
 
-	ft_write(1, msg, 8);
+	ft_write(1, msg, 9);
 	return (0);
 }
