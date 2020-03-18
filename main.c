@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:24:07 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/18 11:34:09 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/18 13:00:04 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void test_write()
 void test_read()
 {
 	int fd;
-	char *line = NULL;
+	int ret = 0;
+	char buf[100];
 
 	fd = open("test.txt", O_RDONLY);
-	ft_read(fd, line, 11);
-	printf("%s\n", line);
+	ret = ft_read(fd, buf, 11);
+	printf("[%d]: %s\n", ret, buf);
 	close(fd);
 }
 
