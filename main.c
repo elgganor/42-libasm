@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:24:07 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/18 13:00:04 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/18 13:11:48 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void test_read()
 
 	fd = open("test.txt", O_RDONLY);
 	ret = ft_read(fd, buf, 11);
+	buf[ret] = '\0';
 	printf("[%d]: %s\n", ret, buf);
 	close(fd);
 }
