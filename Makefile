@@ -22,6 +22,7 @@ fclean: clean
 re: fclean all
 
 test: re
+	rm -f libasm
 	gcc -Wall -Wextra -Werror main.c -L. -lasm -o libasm
 	./libasm
 
