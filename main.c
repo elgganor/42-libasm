@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:24:07 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/20 17:56:04 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/20 19:44:40 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,25 @@ void test_read()
 	close(fd);
 }
 
+char *ft_strcpy(char *dest, char *src)
+{
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
 int main()
 {
-	int ret;
+	char dest[20];
+	char *src = "Hello";
 
-	ret = ft_strcmp("He", "He");
-	printf("%d\n", ret);
+	printf("%s\n", ft_strcpy(dest, src));
 	return (0);
 }
