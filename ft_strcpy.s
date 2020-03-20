@@ -7,11 +7,11 @@ _ft_strcpy:
 	cmp rsi, 0
 	je end
 while:
-	cmp byte [rdi + rcx], 0
-	je end
-	mov bl, byte [rdi + rcx]
-	mov byte [rsi + rcx], bl
 	cmp byte [rsi + rcx], 0
+	je end
+	mov bl, byte [rsi + rcx]
+	mov byte [rdi + rcx], bl
+	cmp byte [rdi + rcx], 0
 	je end
 	inc rcx
 	jmp while
