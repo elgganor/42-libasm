@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:24:07 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/19 17:08:42 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/20 17:56:04 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ void test_read()
 
 int main()
 {
-	//test_write();
-	// test_read();
 	int ret;
 
-	ret = ft_strlen("Hello world");
+	ret = ft_strcmp("He", "He");
 	printf("%d\n", ret);
 	return (0);
 }
