@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 15:24:26 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/20 18:43:24 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/03/21 11:25:43 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/03/21 11:25:54 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ ssize_t ft_read(int fd, void *buf, size_t nbyte);
 size_t ft_strlen(const char *str);
 int ft_strcmp(const char *s1, const char *s2);
 char *ft_strcpy(char *dest, char *src);
+char *ft_strdup(const char *src);
 #endif
