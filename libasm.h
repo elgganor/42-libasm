@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 11:25:43 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/21 11:25:54 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/21 12:13:18 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-ssize_t ft_write(int fd, const void *buf, size_t count);
-ssize_t ft_read(int fd, void *buf, size_t nbyte);
-size_t ft_strlen(const char *str);
-int ft_strcmp(const char *s1, const char *s2);
-char *ft_strcpy(char *dest, char *src);
-char *ft_strdup(const char *src);
+ssize_t	ft_write(int fd, const void *buf, size_t count);
+ssize_t	ft_read(int fd, void *buf, size_t nbyte);
+size_t	ft_strlen(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strdup(const char *src);
 #endif
