@@ -6,50 +6,97 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 11:25:36 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/21 12:07:08 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/05/16 18:19:09 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int main()
+void test_strlen()
 {
-	printf("===== TEST LIBASM =====\n\n");
+	printf("\033[0;32m\n=== ft_strlen === \n\033[0m");
+	printf("M: Vide => %zu\n", ft_strlen(""));
+	printf("R: Vide => %zu\n", strlen(""));
+	printf("M: Normal => %zu\n", ft_strlen("Hello"));
+	printf("R: Normal => %zu\n", strlen("Hello"));
+	printf("M: Long => %zu\n", ft_strlen("Hello world; test1; test2; test3; test4; test5\n"));
+	printf("R: Long => %zu\n", strlen("Hello world; test1; test2; test3; test4; test5"));
+}
 
-	printf("=== ft_write === \n");
-	ft_write(1, "Hello\n", 6);
-	ft_write(1, "Hello world\n", 12);
-	ft_write(1, "", 1);
-	ft_write(1, "\n", 1);
+void test_strcmp()
+{
+	printf("\033[0;32m\n=== ft_strcmp === \n\033[0m");
+	printf("Vide, Vide => %d\n", ft_strcmp("", ""));
+	printf("Normal, Vide => %d\n", ft_strcmp("Hello", ""));
+	printf("Vide, Normal => %d\n", ft_strcmp("", "World"));
+	printf("Normal, Normal: same => %d\n", ft_strcmp("Hello", "Hello"));
+	printf("Normal, Normal: diff => %d\n", ft_strcmp("Hello", "Hel"));
+	printf("Normal, Normal: diff => %d\n", ft_strcmp("Hel", "Hello"));
+}
 
-	printf("\n=== ft_read === \n");
-	int fd = open("main.c", O_RDONLY);
-	char *buf = NULL;
-	ft_read(fd, buf, 10);
-	printf("%s\n", buf);
+void test_strcpy()
+{
+	char dest[100];
+	printf("\033[0;32m\n=== ft_strcpy ===\n\033[0m");
+	printf("Vide => %s\n", ft_strcpy(dest, ""));
+	printf("Normal => %s\n", ft_strcpy(dest, "Hello"));
+	printf("Long => %s\n", ft_strcpy(dest, "Hello world; test1; test2; test3; test4; test5"));
+}
+
+void test_strdup()
+{
+	printf("\033[0;32m\n=== ft_strdup ===\n\033[0m");
+	printf("Vide => %s\n", ft_strdup(""));
+	printf("Normal => %s\n", ft_strdup("Hello"));
+	printf("Long => %s\n", ft_strdup("Hello world; test1; test2; test3; test4; test5"));
+}
+
+void test_write()
+{
+
+}
+
+void test_read()
+{
+	int	fd;
+	int ret;
+	char buf[100];
+
+	fd = open("read.txt", O_RDONLY);
+	errno = 0;
+	ret = read(fd, buf, 50);
+	buf[50] = '\0';
+	printf("[%d] %s\nerrno: %d\n", ret, buf, errno);
 	close(fd);
 
-	printf("\n\n=== ft_strlen === \n");
-	printf("%zu\n", ft_strlen(""));
-	printf("%zu\n", ft_strlen("Hello"));
-	printf("%zu\n", ft_strlen("Hello world\n"));
+	fd = open("read.txt", O_RDONLY);
+	errno = 0;
+	ret = ft_read(fd, buf, 50);
+	buf[50] = '\0';
+	printf("[%d] %s\nerrno: %d\n", ret, buf, errno);
+	close(fd);
 
-	printf("\n=== ft_strcmp === \n");
-	printf("%d\n", ft_strcmp("", ""));
-	printf("%d\n", ft_strcmp("Hello", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "Hel"));
-	printf("%d\n", ft_strcmp("Hel", "Hello"));
-	printf("%d\n", ft_strcmp("Hello", "World"));
 
-	printf("\n=== ft_strcpy ===\n");
-	char dest[100];
-	printf("%s\n", ft_strcpy(dest, "Hello"));
-	printf("%s\n", ft_strcpy(dest, "aaa"));
-	printf("%s\n", ft_strcpy(dest, ""));
+	errno = 0;
+	ret = read(-1, buf, 50);
+	buf[50] = '\0';
+	printf("[%d] %s\nerrno: %d\n", ret, buf, errno);
 
-	printf("\n=== ft_strdup ===\n");
-	printf("%s\n", ft_strdup("Hello"));
-	printf("%s\n", ft_strdup("world"));
-	printf("%s\n", ft_strdup(""));
+	errno = 0;
+	ret = ft_read(-1, buf, 50);
+	buf[50] = '\0';
+	printf("[%d] %s\nerrno: %d\n", ret, buf, errno);
+}
+
+int main()
+{
+	printf("\033[0;34m===== TEST LIBASM =====\n\033[0m");
+
+	// test_strlen();
+	// test_strcmp();
+	// test_strcpy();
+	// test_strdup();
+	// test_write();
+	test_read();
 	return (0);
 }
