@@ -1,6 +1,6 @@
 	section .text
 	global _ft_read
-	extern __errno_location
+	extern ___error
 
 _ft_read:
 	mov rax, 0x02000003
@@ -9,9 +9,10 @@ _ft_read:
 	ret
 
 error:
-	neg rax
-	mov rdx,rax
-	call __errno_location
-	mov [rax],rdx
-	mov rax,-1
+	mov rdx, rax
+	push rdx
+	call ___error
+	pop rdx
+	mov [rax], rdx
+	mov rax, -1
 	ret
